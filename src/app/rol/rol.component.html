@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header custom-header text-white">
+    Lista de Roles
+  </div>
+
+  <div class="card-body">
+    <button class="btn btn-success mb-3" [routerLink]="['/rol/nuevo']">
+      <i class="bi bi-plus-lg"></i> Nuevo Rol
+    </button>
+  </div>
+
+  <table class="table table-hover table-bordered">
+    <thead class="table-dark">
+    <tr>
+      <th>N</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let rol of roles; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ rol.nombreRol }}</td>
+      <td>{{ rol.descripcionRol }}</td>
+      <td>
+        <button class="btn btn-outline-warning" [routerLink]="['/rol/editar', rol.idRol]">
+          <i class="bi bi-gear"></i> Editar
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

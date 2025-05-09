@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-header custom-header text-white">
+    Registrar Rol
+  </div>
+  <div class="card-body position-relative">
+    <button
+      class="btn p-0 position-absolute"
+      [routerLink]="['/rol']"
+      style="border: none; background: none; top: 0; left: 0; margin: 20px;">
+      <img src="assets/atras.png" class="rounded-circle" alt="Volver a estados" style="width: 45px; height: 45px;">
+    </button>
+    <div class="d-flex justify-content-center">
+      <form [formGroup]="rolForm" (ngSubmit)="registrarRol()" class="w-50">
+        <div class="mb-3">
+          <label for="nombreRol" class="form-label">Nombre del Rol</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombreRol"
+            formControlName="nombreRol"
+            placeholder="Ingrese nombre del rol"
+            required
+          />
+          <div *ngIf="rolForm.get('nombreRol')?.invalid && rolForm.get('nombreRol')?.touched" class="text-danger">
+            El nombre del rol es requerido.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcionRol" class="form-label">Descripción del Rol</label>
+          <textarea
+            class="form-control"
+            id="descripcionRol"
+            formControlName="descripcionRol"
+            rows="3"
+            placeholder="Ingrese descripción del rol"></textarea>
+          <div *ngIf="rolForm.get('descripcionRol')?.invalid && rolForm.get('descripcionRol')?.touched" class="text-danger">
+            La descripción del rol es requerida.
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary" [disabled]="rolForm.invalid">Guardar Rol</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

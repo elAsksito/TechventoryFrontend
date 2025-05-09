@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header custom-header text-white">
+    Editar Categoría
+  </div>
+  <div class="card-body position-relative">
+    <button class="btn p-0 position-absolute" [routerLink]="['/categorias']"
+            style="border: none; background: none; top: 0; left: 0; margin: 20px;">
+      <img src="assets/atras.png" class="rounded-circle" alt="Volver a categorias"
+           style="width: 45px; height: 45px;">
+    </button>
+    <div class="d-flex justify-content-center">
+      <form [formGroup]="categoriaForm" (ngSubmit)="actualizarCategoria()" class="w-50">
+        <div class="mb-3">
+          <label for="nombreCategoria" class="form-label">Nombre de la Categoría</label>
+          <input type="text" id="nombreCategoria" formControlName="nombreCategoria" class="form-control"
+                 placeholder="Ingrese nombre de la categoría" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcionCategoria" class="form-label">Descripción</label>
+          <textarea id="descripcionCategoria" formControlName="descripcion" class="form-control" rows="3"
+                    placeholder="Ingrese descripción de la categoría"></textarea>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-warning" [disabled]="categoriaForm.invalid || isLoading">
+            Actualizar Categoría
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

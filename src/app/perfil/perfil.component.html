@@ -1,0 +1,68 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<div class="bg-light">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <div class="text-center">
+          <div class="position-relative d-inline-block">
+            <img src="assets/6073873.png" class="rounded-circle profile-pic" alt="Foto de perfil">
+          </div>
+          <h3 class="mt-3 mb-1" id="nombreCompleto">
+            {{ usuario?.nombre }} {{ usuario?.apellido }}
+          </h3>
+          <p class="text-muted mb-3">{{ usuario?.rol }}</p>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-3 border-end">
+                <div class="p-4">
+                  <div class="nav flex-column nav-pills">
+                    <a class="nav-link active"><i class="fas fa-id-card me-2"></i>Datos del Usuario</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-9">
+                <div class="p-4">
+                  <div class="mb-4">
+                    <h5 class="mb-4">Información del Usuario</h5>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control" [value]="usuario?.nombre" readonly>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Apellido</label>
+                        <input type="text" class="form-control" [value]="usuario?.apellido" readonly>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">DNI</label>
+                        <input type="text" class="form-control" [value]="usuario?.dni" readonly>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" [value]="usuario?.telefono" readonly>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Correo</label>
+                        <input type="email" class="form-control" [value]="usuario?.correo" readonly>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" [value]="usuario?.username" readonly>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

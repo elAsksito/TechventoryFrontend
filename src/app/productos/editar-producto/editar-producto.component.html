@@ -1,0 +1,78 @@
+<div class="card">
+  <div class="card-header custom-header text-white">
+    Editar Producto
+  </div>
+  <div class="card-body position-relative">
+    <button class="btn p-0 position-absolute" [routerLink]="['/productos']"
+            style="border: none; background: none; top: 0; left: 0; margin: 20px;">
+      <img src="assets/atras.png" class="rounded-circle" alt="Volver a productos"
+           style="width: 45px; height: 45px;">
+    </button>
+    <div *ngIf="productoForm" class="w-75 mx-auto">
+      <form [formGroup]="productoForm" (ngSubmit)="actualizarProducto()">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombreProducto" placeholder="Ingrese nombre del producto" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="stock" class="form-label">Stock</label>
+            <input type="number" class="form-control" id="stock" formControlName="stock" placeholder="Ingrese stock" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="precio" formControlName="precio" placeholder="Ingrese precio" step="0.01" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="sku" class="form-label">SKU</label>
+            <input type="text" class="form-control" id="sku" formControlName="sku" placeholder="Ingrese SKU" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="codigoBarras" class="form-label">Código de Barras</label>
+            <input type="text" class="form-control" id="codigoBarras" formControlName="codigoBarras" placeholder="Ingrese código de barras" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="estado" class="form-label">Estado</label>
+            <select class="form-select" id="estado" formControlName="idEstado" required>
+              <option disabled value="">Seleccione estado</option>
+              <option *ngFor="let estado of estados" [value]="estado.idEstado" [selected]="estado.idEstado === productoForm.value.idEstado">
+                {{ estado.nombreEstado }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="categoria" class="form-label">Categoría</label>
+            <select class="form-select" id="categoria" formControlName="idCategoria" required>
+              <option disabled value="">Seleccione categoría</option>
+              <option *ngFor="let categoria of categorias" [value]="categoria.idCategoria" [selected]="categoria.idCategoria === productoForm.value.idCategoria">
+                {{ categoria.nombreCategoria }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea class="form-control" id="descripcion" formControlName="descripcion" rows="3" placeholder="Ingrese una descripción"></textarea>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-warning" [disabled]="productoForm.invalid">Actualizar Producto</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

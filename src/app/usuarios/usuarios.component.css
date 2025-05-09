@@ -1,0 +1,43 @@
+.card-header {
+    font-size: 1.25rem;
+    font-weight: 500;
+    background: #012a5b;
+  }
+
+
+  /*Barra de Búsqueda*/
+  .search-container {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .search-input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    background-color: #012a5b;
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #001c3d;
+  }
+  
+  
+/*Linea Gris*/ 
+.divider {
+  height: 2px;
+  background-color: #ccc;
+  margin: 20px 0;
+}
+  

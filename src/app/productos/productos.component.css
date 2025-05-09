@@ -1,0 +1,67 @@
+.card-header {
+    font-size: 1.25rem;
+    font-weight: 500;
+    background: #012a5b;
+  }
+
+.divider {
+height: 2px;
+background-color: #ccc;
+margin: 20px 0;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between; /* Separa los elementos a los extremos */
+  align-items: center; /* Alinea verticalmente */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  margin-top: 20px; /* Espacio superior */
+}
+
+.search-box {
+  display: flex;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px 0 0 8px; /* Borde redondeado en la izquierda */
+  outline: none;
+  width: 250px; /* Ancho del input */
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #012a5b;
+  color: white;
+  border: none;
+  border-radius: 0 8px 8px 0; /* Borde redondeado en la derecha */
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #001c3d;
+}
+
+.download-button {
+  padding: 12px 24px;
+  background-color: #012a5b;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: #001c3d;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.download-button:active {
+  transform: scale(1);
+}

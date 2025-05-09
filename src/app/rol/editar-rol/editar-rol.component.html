@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-header custom-header text-white">
+    Editar Rol
+  </div>
+  <div class="card-body position-relative">
+    <button class="btn p-0 position-absolute" [routerLink]="['/rol']"
+            style="border: none; background: none; top: 0; left: 0; margin: 20px;">
+      <img src="assets/atras.png" class="rounded-circle" alt="Volver a roles"
+           style="width: 45px; height: 45px;">
+    </button>
+    <div class="d-flex justify-content-center">
+      <form *ngIf="rol" class="w-50" (ngSubmit)="actualizarRol()" #form="ngForm">
+        <div class="mb-3">
+          <label for="nombreRol" class="form-label">Nombre del Rol</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombreRol"
+            name="nombreRol"
+            [(ngModel)]="rol.nombreRol"
+          placeholder="Ingrese nombre del rol"
+          required
+          >
+        </div>
+        <div class="mb-3">
+          <label for="descripcionRol" class="form-label">Descripción del Rol</label>
+          <textarea
+            class="form-control"
+            id="descripcionRol"
+            name="descripcionRol"
+            [(ngModel)]="rol.descripcionRol"
+          rows="3"
+          placeholder="Ingrese descripción del rol"
+          required
+          ></textarea>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-warning">Actualizar Rol</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

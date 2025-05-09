@@ -1,0 +1,80 @@
+<div class="card">
+  <div class="card-header custom-header text-white">
+    Editar Usuario
+  </div>
+  <div class="card-body position-relative">
+    <button class="btn p-0 position-absolute" [routerLink]="['/usuarios']"
+            style="border: none; background: none; top: 0; left: 0; margin: 20px;">
+      <img src="assets/atras.png" class="rounded-circle" alt="Volver"
+           style="width: 45px; height: 45px;">
+    </button>
+
+    <div class="w-75 mx-auto">
+      <form *ngIf="usuario" (ngSubmit)="actualizarUsuario()" #form="ngForm">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="dni" class="form-label">DNI</label>
+            <input type="text" class="form-control" id="dni" name="dniUsuario" maxlength="8"
+                   [(ngModel)]="usuario.dniUsuario" placeholder="Ingrese DNI" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombreUsuario"
+                   [(ngModel)]="usuario.nombreUsuario" placeholder="Ingrese nombre" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido" name="apellidoUsuario"
+                   [(ngModel)]="usuario.apellidoUsuario" placeholder="Ingrese apellido" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="usernameUsuario"
+                   [(ngModel)]="usuario.usernameUsuario" placeholder="Ingrese nombre de usuario" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="correo" class="form-label">Correo</label>
+            <input type="email" class="form-control" id="correo" name="correoUsuario"
+                   [(ngModel)]="usuario.correoUsuario" placeholder="Ingrese correo" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="telefono" name="telefonoUsuario"
+                   [(ngModel)]="usuario.telefonoUsuario" placeholder="Ingrese teléfono" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="rol" class="form-label">Rol</label>
+            <select class="form-select" id="rol" name="rol" [(ngModel)]="usuario.rol.nombreRol" required>
+              <option disabled value="">Seleccione un rol</option>
+              <option value="Administrador">Administrador</option>
+              <option value="Usuario">Usuario</option>
+            </select>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="estadoUsuario" class="form-label">Estado</label>
+            <select class="form-select" id="estadoUsuario" name="estadoUsuario"
+                    [(ngModel)]="usuario.estadoUsuario" required>
+              <option value="Activo">Activo</option>
+              <option value="Inactivo">Inactivo</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-warning">Actualizar Usuario</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

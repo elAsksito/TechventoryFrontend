@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-header custom-header text-white">
+    Editar Estado
+  </div>
+  <div class="card-body position-relative">
+    <button class="btn p-0 position-absolute" [routerLink]="['/estado']"
+            style="border: none; background: none; top: 0; left: 0; margin: 20px;">
+      <img src="assets/atras.png" class="rounded-circle" alt="Volver a estados"
+           style="width: 45px; height: 45px;">
+    </button>
+
+    <div class="d-flex justify-content-center">
+      <form [formGroup]="estadoForm" (ngSubmit)="actualizarEstado()" class="w-50">
+        <div class="mb-3">
+          <label for="nombreEstado" class="form-label">Nombre del Estado</label>
+          <input type="text" formControlName="nombreEstado" id="nombreEstado" class="form-control" placeholder="Ingrese nombre del estado">
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcionEstado" class="form-label">Descripción</label>
+          <textarea formControlName="descripcion" id="descripcionEstado" class="form-control" rows="3" placeholder="Ingrese descripción del estado"></textarea>
+        </div>
+
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-warning" [disabled]="estadoForm.invalid || isLoading">
+            Actualizar Estado
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+body {
+    background-color: #004a99;
+  }
+
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #004a99;
+  }
+
+  .card-login {
+    width: 900px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+
+  .image-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .form-content {
+    width: 100%;
+  }
+
+  .input-rounded {
+    border-radius: 30px;
+    border: 1px solid #cfd8dc;
+    padding: 12px 20px;
+  }
+
+  .btn-rounded {
+    border-radius: 30px;
+    padding: 12px;
+    background: #4d6cf0;
+    border: none;
+  }
+
+  .btn-rounded:hover {
+    background: #3952c0;
+  }
+
+  .forgot-password {
+    color: #4d6cf0;
+    text-decoration: none;
+  }
+
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+
+.input-rounded.is-invalid {
+  border-color: red;
+}
+.error {
+  color: red;
+  font-size: 0.875rem;
+}

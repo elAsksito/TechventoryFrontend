@@ -1,0 +1,85 @@
+<div class="card">
+  <div class="card-header custom-header text-white">
+    Lista de Productos
+  </div>
+
+  <div class="card-body">
+    <button class="btn btn-success mb-3" [routerLink]="['/productos/nuevo']">
+      <i class="bi bi-plus-lg"></i> Nuevo Producto
+    </button>
+
+    <div class="divider"></div>
+
+    <div class="search-container">
+      <input
+        type="text"
+        placeholder="Buscar por nombre..."
+        class="search-input"
+        [(ngModel)]="searchQueryNombre"
+        (input)="buscarProductos()"
+      />
+
+      <input
+        type="text"
+        placeholder="Buscar por categoría..."
+        class="search-input"
+        [(ngModel)]="searchQueryCategoria"
+        (input)="buscarProductos()"
+      />
+
+      <input
+        type="text"
+        placeholder="Buscar por estado..."
+        class="search-input"
+        [(ngModel)]="searchQueryEstado"
+        (input)="buscarProductos()"
+      />
+      <button class="btn btn-outline-primary" (click)="limpiarFiltros()">Limpiar</button>
+      <div class="button-container">
+        <button class="download-button" (click)="exportarAExcel()">Descargar Reporte</button>
+      </div>
+    </div>
+
+    <br>
+
+    <div *ngIf="isLoading" class="text-center">
+      <output class="spinner-border text-primary"></output>
+      <p>Cargando productos...</p>
+    </div>
+
+    <div *ngIf="errorMessage" class="alert alert-danger" aria-live="assertive">
+      {{ errorMessage }}
+    </div>
+
+    <table *ngIf="!isLoading && productos.length > 0" class="table table-hover table-bordered">
+      <thead class="table-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Stock</th>
+        <th>Precio</th>
+        <th>SKU</th>
+        <th>Categoría</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let producto of productosFiltrados">
+        <td>{{ producto.nombreProducto }}</td>
+        <td>{{ producto.stock }}</td>
+        <td>S/. {{ producto.precio }}</td>
+        <td>{{ producto.sku }}</td>
+        <td>{{ producto.categoria.nombreCategoria || 'Sin categoría' }}</td>
+        <td>{{ producto.estado.nombreEstado || 'Sin estado' }}</td>
+        <td><button class="btn btn-outline-danger mb-3" [routerLink]="['/producto/editar', producto.idProducto]">
+          <i class="bi bi-gear"></i>
+        </button></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="!isLoading && productos.length === 0" class="alert alert-info">
+      No hay productos disponibles.
+    </div>
+  </div>
+</div>

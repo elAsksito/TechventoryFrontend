@@ -1,0 +1,120 @@
+<div class="card">
+  <div class="card-header custom-header text-white">
+    Registrar Usuario
+  </div>
+  <div class="card-body position-relative">
+    <button class="btn p-0 position-absolute" [routerLink]="['/usuarios']"
+          style="border: none; background: none; top: 0; left: 0; margin: 20px;">
+    <img src="assets/atras.png" class="rounded-circle" alt="Volver a estados"
+         style="width: 45px; height: 45px;">
+  </button>
+  <div class="w-75 mx-auto">
+    <form [formGroup]="usuarioForm">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="nombreUsuario" class="form-label">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombreUsuario"
+            formControlName="nombreUsuario"
+            placeholder="Ingrese nombre"
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="apellidoUsuario" class="form-label">Apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            id="apellidoUsuario"
+            formControlName="apellidoUsuario"
+            placeholder="Ingrese apellido"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="dniUsuario" class="form-label">DNI</label>
+          <input
+            type="text"
+            class="form-control"
+            id="dniUsuario"
+            formControlName="dniUsuario"
+            placeholder="Ingrese DNI"
+            maxlength="8"
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="usernameUsuario" class="form-label">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="usernameUsuario"
+            formControlName="usernameUsuario"
+            placeholder="Ingrese nombre de usuario"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="correoUsuario" class="form-label">Correo</label>
+          <input
+            type="email"
+            class="form-control"
+            id="correoUsuario"
+            formControlName="correoUsuario"
+            placeholder="Ingrese correo"
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="contraseniaUsuario" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            id="contraseniaUsuario"
+            formControlName="contraseniaUsuario"
+            placeholder="Ingrese contraseña"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="telefonoUsuario" class="form-label">Teléfono</label>
+          <input
+            type="text"
+            class="form-control"
+            id="telefonoUsuario"
+            formControlName="telefonoUsuario"
+            placeholder="Ingrese teléfono"
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="rol" class="form-label">Rol</label>
+          <select
+            class="form-select"
+            id="rol"
+            formControlName="rol"
+          >
+            <option value="" disabled>Seleccione un rol</option>
+            <option *ngFor="let rol of roles" [value]="rol.nombreRol">
+              {{ rol.nombreRol }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="estadoUsuario" class="form-label">Estado</label>
+          <select class="form-select" id="estadoUsuario" formControlName="estadoUsuario" required>
+            <option value="Activo" selected>Activo</option>
+            <option value="Inactivo">Inactivo</option>
+          </select>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end mt-3">
+        <button type="submit" class="btn btn-primary" (click)="guardar()">
+          Guardar Usuario
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

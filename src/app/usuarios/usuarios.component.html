@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header custom-header text-white">
+    Lista de Usuarios
+  </div>
+
+  <div class="card-body">
+    <button class="btn btn-success mb-3" [routerLink]="['/usuarios/nuevo']">
+      <i class="bi bi-plus-lg"></i> Nuevo Usuario
+    </button>
+
+    <div class="divider"></div>
+
+    <div *ngIf="isLoading">Cargando usuarios...</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+    <div *ngIf="!isLoading && !errorMessage">
+      <ul *ngIf="usuarios.length > 0" class="list-group">
+        <li *ngFor="let usuario of usuarios" class="list-group-item">
+          <div>
+            <strong>{{ usuario.nombreUsuario }} {{ usuario.apellidoUsuario }}</strong>
+            <br />
+            <div class="d-flex justify-content-between align-items-center">
+              <small>Correo: {{ usuario.correoUsuario }}</small>
+              <button class="btn btn-outline-danger btn-sm" [routerLink]="['/usuario/editar', usuario.idUsuario]">
+                <i class="bi bi-gear"></i>
+              </button>
+            </div>
+            <small>Rol: {{ usuario.rol.nombreRol }}</small>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

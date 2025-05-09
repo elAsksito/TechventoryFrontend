@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card-header custom-header text-white">
+    Registrar Estado
+  </div>
+  <div class="card-body position-relative">
+    <!-- Botón de regreso -->
+    <button class="btn p-0 position-absolute" [routerLink]="['/estado']"
+            style="border: none; background: none; top: 0; left: 0; margin: 20px;">
+      <img src="assets/atras.png" class="rounded-circle" alt="Volver a estados"
+           style="width: 45px; height: 45px;">
+    </button>
+
+    <div class="d-flex justify-content-center">
+      <form [formGroup]="estadoForm" (ngSubmit)="registrarEstado()" class="w-50">
+
+        <div class="mb-3">
+          <label for="nombreEstado" class="form-label">Nombre del Estado</label>
+          <input type="text" class="form-control" id="nombreEstado" formControlName="nombreEstado"
+                 placeholder="Ingrese nombre del estado" required>
+          <div *ngIf="estadoForm.get('nombreEstado')?.invalid && estadoForm.get('nombreEstado')?.touched" class="text-danger">
+            El nombre del estado es obligatorio y debe tener menos de 100 caracteres.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcionEstado" class="form-label">Descripción</label>
+          <textarea class="form-control" id="descripcionEstado" formControlName="descripcion"
+                    rows="3" placeholder="Ingrese descripción del estado" required></textarea>
+          <div *ngIf="estadoForm.get('descripcion')?.invalid && estadoForm.get('descripcion')?.touched" class="text-danger">
+            La descripción es obligatoria y debe tener menos de 250 caracteres.
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary" [disabled]="estadoForm.invalid || isLoading">
+            {{ isLoading ? 'Guardando...' : 'Guardar Estado' }}
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>
